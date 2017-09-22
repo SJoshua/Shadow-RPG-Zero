@@ -5,4 +5,4 @@ A Role-Play Game Framework in Lua based on LÖVE.
 * LÖVE 0.10.2
 
 ## About
-It's a individual project, and there might be a demo in near future.
+It's an individual project, and there might be a demo in near future.
