@@ -1,0 +1,22 @@
+return {
+	width = 32,
+	height = 48,
+	columns = 3,
+	source = "student-01.png",
+	[0] = {
+		line = 1,
+		col = 1
+	},
+	[1] = {
+		line = 5,
+		col = 1
+	},
+	[2] = {
+		line = 1,
+		col = 4
+	},
+	[3] = {
+		line = 5,
+		col = 4
+	},
+}

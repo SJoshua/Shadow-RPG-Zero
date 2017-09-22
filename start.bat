@@ -1,0 +1,3 @@
+:mark
+@love .
+@goto mark
