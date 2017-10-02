@@ -6,7 +6,10 @@ local utils = require "base.utils"
 local scene_manager = require "base.scene_manager"
 
 local map = require "scene.map"
+local load = require "interface.load"
+local settings = require "interface.settings"
 local exit = require "interface.exit"
+
 
 local title = {}
 
@@ -52,8 +55,9 @@ local function process()
 	if focus == 1 then
 		return scene_manager:push(map)
 	elseif focus == 2 then
-		return scene_manager:push(map)
+		return scene_manager:push(load)
 	elseif focus == 3 then
+		return scene_manager:push(settings)
 	elseif focus == 4 then
 		return scene_manager:overlay(exit)
 	end
