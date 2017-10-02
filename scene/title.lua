@@ -1,6 +1,6 @@
 --------------------------------------------
 -- title @ scene
--- @ SF Software
+-- Au: SJoshua
 --------------------------------------------
 local utils = require "base.utils"
 local scene_manager = require "base.scene_manager"
@@ -16,7 +16,7 @@ local clock = 0
 local cursor = {index = 1}
 
 function title:enter()
-	titleImage = love.graphics.newImage("resource/images/title.jpg")
+	titleImage = image.title
 	title = {
 		love.graphics.newText(font.NotoSansCJK[60], "Shadow RPG Zero")
 	}
@@ -61,19 +61,20 @@ end
 
 function title:mousepressed(x, y, button, istouch)
 	focus = utils.select(pos, x, y) or focus
-	if button == 1 then
+	if utils.select(pos, x, y) and button == 1 then
 		process()
 	end
 end
 
 function title:keypressed(key)
-	if key == "left" and focus > 1 then
+	if key == "left" then
 		focus = focus - 1
-	elseif key == "right" and focus < 4 then
+	elseif key == "right" then
 		focus = focus + 1
 	elseif key == "return" then
 		return process()
 	end
+	focus = (focus - 1) % #pos + 1
 end
 
-return title 
+return title

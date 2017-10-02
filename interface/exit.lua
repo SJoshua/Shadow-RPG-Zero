@@ -58,19 +58,21 @@ local function process()
 end
 
 function exit:mousepressed(x, y, button, istouch)
-	if button == 1 then
+	focus = utils.select(pos, x, y) or focus
+	if utils.select(pos, x, y) and button == 1 then
 		process()
 	end
 end
 
 function exit:keypressed(key)
-	if key == "left" and focus > 1 then
+	if key == "left" then
 		focus = focus - 1
-	elseif key == "right" and focus < 2 then
+	elseif key == "right" then
 		focus = focus + 1
 	elseif key == "return" then
 		return process()
 	end
+	focus = (focus - 1) % #pos + 1
 end
 
-return exit 
+return exit

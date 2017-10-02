@@ -98,4 +98,19 @@ function utils.maxDistance(posA, posB)
   return math.max(math.abs(posA.x - posB.x), math.abs(posA.y - posB.y))
 end
 
-return utils 
+--------------------------------------------
+-- touch @ utils
+--------------------------------------------
+-- filepath: string
+-- ret: boolean
+--------------------------------------------
+function utils.touch(filepath)
+	local f = io.open(filepath, "r")
+	if not f then
+		return false
+	end
+	f:close()
+	return true
+end
+
+return utils

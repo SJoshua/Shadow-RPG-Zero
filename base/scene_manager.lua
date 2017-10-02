@@ -16,14 +16,14 @@ end
 local M = setmetatable({}, {__index = function(self, func)
 	if func == "draw" then -- how about update?
 		return function(...)
-			(self.current()[func] or __NULL__)(...)
+			(self.current()[func] or __NULL__)(self.current(), ...)
 			for i = 1, #cover do
-				(cover[i][func] or __NULL__)(...)
+				(cover[i][func] or __NULL__)(cover[i], ...)
 			end
 		end
 	else
 		return function(...)
-			(self.top()[func] or __NULL__)(...)
+			(self.top()[func] or __NULL__)(self.top(), ...)
 		end
 	end
 end})
@@ -93,4 +93,4 @@ end
 
 setmetatable(love, {__index = M})
 
-return M 
+return M
